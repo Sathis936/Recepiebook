@@ -1,15 +1,16 @@
 import React from 'react'
 import ResponsiveAppBar from '../navbar/Navbar'
 import Header from '../navbar/Header'
-import Search from '../search/Search';
- 
+import Footer from '../../footer/Footer';
+
 
 function Home() {
   return (
     <div>
       <ResponsiveAppBar/>
     <Header/>
-   <Search/>
+  <Footer/>
+
     </div>
   )
 }

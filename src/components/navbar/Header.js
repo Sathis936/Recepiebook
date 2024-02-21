@@ -3,11 +3,12 @@
 
  function Header() {
    return (
-     
+     <div style={{ marginBottom: "40%"}}>
       <video autoPlay muted loop
       style={{
+        marginBottom: "100%",
         width:'100%',
-        height: '90.5%',
+        height: '80%',
         position: 'absolute',
         objectFit: 'cover',
         zIndex: '-1'
@@ -17,7 +18,7 @@
      <source src={foodreceipie} type='video/ogg'></source>
      Your browser dosent support the video tag
       </video>
-     
+      </div>
    )
  }
  

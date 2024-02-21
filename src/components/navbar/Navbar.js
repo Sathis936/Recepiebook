@@ -5,15 +5,16 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-const pages = ['Home', 'Contests', 'Contact','Login'];
+import { NavLink } from 'react-router-dom';
+
+const pages = ['Home','Contact','Login'];
 
 
 function ResponsiveAppBar() {
@@ -72,6 +73,7 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
+          
             variant="h6"
             noWrap
             component="a"
@@ -79,36 +81,27 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: ' Georgia',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'black',
               textDecoration: 'none',
             }}
           >
-          recipiebook
-          <MenuBookIcon/>
+           <MenuBookIcon
+          
+           />
+           Recepiebook
           </Typography>
-          <Search>
-    <SearchIconWrapper>
-      <SearchIcon />
-    </SearchIconWrapper>
-    <StyledInputBase
-      placeholder="Search…"
-      inputProps={{ 'aria-label': 'search' }}
-    />
-  </Search>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
+            <IconButton 
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-            >
-              <MenuIcon />
+            > 
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -128,11 +121,50 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <NavLink to='/home'>
+                <Button
+                style={{
+                marginLeft:"4rem",
+                borderRadius:"2rem",
+                backgroundColor:"darkcyan",
+                padding:".5rem 1rem"
+              }}
+              color='inherit'
+            >
+              Home
+             </Button>
+
+              </NavLink>
+              
+              <NavLink to='/contact ' >
+                <Button
+                style={{
+                marginLeft:"4rem",
+                borderRadius:"2rem",
+                backgroundColor:"darkcyan",
+                padding:".5rem 1rem"
+              }}
+              color='inherit'
+            >
+              Contact
+             </Button>
+
+              </NavLink>
+              
+              <NavLink to='/login' style={{color:"white"}}>
+                <Button
+                style={{
+                marginLeft:"4rem",
+                borderRadius:"2rem",
+                backgroundColor:"darkcyan",
+                padding:".5rem 1rem"
+              }}
+              color='inherit'
+            >
+              Login
+             </Button>
+
+              </NavLink>
             </Menu>
           </Box>
           <Typography
@@ -152,17 +184,7 @@ function ResponsiveAppBar() {
             }}
           >
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+          
 
           <Box sx={{ flexGrow: 0 }}>
              
@@ -185,9 +207,20 @@ function ResponsiveAppBar() {
             
             </Menu>
           </Box>
+          <Search>
+    <SearchIconWrapper>
+      <SearchIcon />
+    </SearchIconWrapper>
+    <StyledInputBase
+      placeholder="Search recepies,ingredients…"
+      inputProps={{ 'aria-label': 'search' }}
+    />
+  </Search>
         </Toolbar>
+      
       </Container>
     </AppBar>
+  
   );
 }
 export default ResponsiveAppBar; 
